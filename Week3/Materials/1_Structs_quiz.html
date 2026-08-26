@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Classes Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #CCDC3C;
+            background-color: #303030;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>C++ Classes Quiz</h1>
+        <div class="question" id="question1">
+            <h3>1. What will be the output of this code?</h3>
+            <pre>
+struct Data {
+    int x;
+    void show() {
+        std::cout << x << std::endl;
+    }
+};
+
+Data d;
+d.x = 42;
+d.show();
+</pre>
+            <ul class="options">
+                <li><button onclick="checkAnswer(1, 'a')">a) Compilation error</button></li>
+                <li><button onclick="checkAnswer(1, 'b')">b) 42</button></li>
+                <li><button onclick="checkAnswer(1, 'c')">c) 0</button></li>
+                <li><button onclick="checkAnswer(1, 'd')">d) Garbage value</button></li>
+            </ul>
+            <div class="feedback" id="feedback1">
+                <div class="feedback correct">Correct! The struct has a public member x and a public method show(), so it prints the value 42.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            <h3>2. Which of the following statements is true about struct inheritance in C++?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(2, 'a')">a) structs cannot inherit from other types</button></li>
+                <li><button onclick="checkAnswer(2, 'b')">b) structs can only inherit from other structs</button></li>
+                <li><button onclick="checkAnswer(2, 'c')">c) structs can only use private inheritance</button></li>
+                <li><button onclick="checkAnswer(2, 'd')">d) structs can inherit from both structs and classes</button></li>
+            </ul>
+            <div class="feedback" id="feedback2">
+                <div class="feedback correct">Correct! In C++, structs support full inheritance and polymorphism, just like classes.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question3">
+            <h3>3. What is the default access modifier for struct members in C++?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(3, 'a')">a) public</button></li>
+                <li><button onclick="checkAnswer(3, 'b')">b) private</button></li>
+                <li><button onclick="checkAnswer(3, 'c')">c) protected</button></li>
+                <li><button onclick="checkAnswer(3, 'd')">d) static</button></li>
+            </ul>
+            <div class="feedback" id="feedback3">
+                <div class="feedback correct">Correct! In C++, members of a struct are public by default, unlike class where they are private.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question5">
+            <h3>4. Which of the following can C++ structs contain?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(5, 'a')">a) Only data members</button></li>
+                <li><button onclick="checkAnswer(5, 'b')">b) Only functions</button></li>
+                <li><button onclick="checkAnswer(5, 'c')">c) Both data members and member functions</button></li>
+                <li><button onclick="checkAnswer(5, 'd')">d) Neither data members nor functions</button></li>
+            </ul>
+            <div class="feedback" id="feedback5">
+                <div class="feedback correct">Correct! C++ structs can have constructors, destructors, member functions, and even inheritance—just like classes.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question6">
+            <h3>5. What is the main difference between a struct and a class in C++?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(6, 'a')">a) structs are faster</button></li>
+                <li><button onclick="checkAnswer(6, 'b')">b) classes cannot have public members</button></li>
+                <li><button onclick="checkAnswer(6, 'c')">c) structs use public access by default, classes use private</button></li>
+                <li><button onclick="checkAnswer(6, 'd')">d) classes cannot have member functions</button></li>
+            </ul>
+            <div class="feedback" id="feedback6">
+                <div class="feedback correct">Correct! This is the only technical difference between the two in C++.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'd',
+            3: 'a',
+            5: 'c',
+            6: 'c'
+        };
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            const correctFeedback = feedbackElement.querySelector('.feedback.correct');
+            const incorrectFeedback = feedbackElement.querySelector('.feedback.incorrect');
+            if (selectedOption === answers[questionNumber]) {
+                /*feedbackElement.innerHTML = "Correct!";*/
+                /*feedbackElement.className = "feedback correct";*/
+                correctFeedback.style.display = 'block';
+                incorrectFeedback.style.display = 'none';
+
+            } else {
+                /*feedbackElement.innerHTML = "Incorrect!";*/
+                /*feedbackElement.className = "feedback incorrect";*/
+                correctFeedback.style.display = 'none';
+                incorrectFeedback.style.display = 'block';
+            }
+            feedbackElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

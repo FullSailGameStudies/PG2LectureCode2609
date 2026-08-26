@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Reading CSV Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #CCDC3C;
+            background-color: #303030;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>C++ Reading CSV Quiz</h1>
+        <div class="question" id="question1">
+            <h3>1. Which C++ class is used to read from a file?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(1, 'a')">a) ofstream</button></li>
+                <li><button onclick="checkAnswer(1, 'b')">b) fstream</button></li>
+                <li><button onclick="checkAnswer(1, 'c')">c) ifstream</button></li>
+                <li><button onclick="checkAnswer(1, 'd')">d) file_reader</button></li>
+            </ul>
+            <div class="feedback" id="feedback1">
+                <div class="feedback correct">Correct! ifstream is the input file stream class used to read data from files.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            <h3>2. What does std::getline(file, line) do?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(2, 'a')">a) Reads a single character from the file</button></li>
+                <li><button onclick="checkAnswer(2, 'b')">b) Reads a line from the file into a string</button></li>
+                <li><button onclick="checkAnswer(2, 'c')">c) Reads the entire file into a string</button></li>
+                <li><button onclick="checkAnswer(2, 'd')">d) Reads a line and splits it into tokens</button></li>
+            </ul>
+            <div class="feedback" id="feedback2">
+                <div class="feedback correct">Correct! std::getline reads characters from the stream until a newline is encountered.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question3">
+            <h3>3. Which C++ class is commonly used to split a CSV line into fields?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(3, 'a')">a) std::vector</button></li>
+                <li><button onclick="checkAnswer(3, 'b')">b) std::string</button></li>
+                <li><button onclick="checkAnswer(3, 'c')">c) std::stringstream</button></li>
+                <li><button onclick="checkAnswer(3, 'd')">d) std::map</button></li>
+            </ul>
+            <div class="feedback" id="feedback3">
+                <div class="feedback correct">Correct! std::stringstream allows you to treat a string like a stream, making it easy to extract comma-separated values.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question4">
+            <h3>4. What is the delimiter used in std::getline(ss, field, ',')?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(4, 'a')">a) Newline</button></li>
+                <li><button onclick="checkAnswer(4, 'b')">b) Tab</button></li>
+                <li><button onclick="checkAnswer(4, 'c')">c) Comma</button></li>
+                <li><button onclick="checkAnswer(4, 'd')">d) Space</button></li>
+            </ul>
+            <div class="feedback" id="feedback4">
+                <div class="feedback correct">Correct! The third argument in std::getline specifies the delimiter—in CSV files, this is typically a comma.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question5">
+            <h3>5. What is a limitation of the basic CSV reading approach using ifstream and stringstream?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(5, 'a')">a) It cannot read integers</button></li>
+                <li><button onclick="checkAnswer(5, 'b')">b) It cannot open files</button></li>
+                <li><button onclick="checkAnswer(5, 'c')">c) It does not handle quoted fields with commas</button></li>
+                <li><button onclick="checkAnswer(5, 'd')">d) It only works on Windows</button></li>
+            </ul>
+            <div class="feedback" id="feedback5">
+                <div class="feedback correct">Correct! Basic parsing does not account for fields enclosed in quotes that contain commas or newlines.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question6">
+            <h3>6. What should you always check before reading from a file?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(6, 'a')">a) If the file is empty</button></li>
+                <li><button onclick="checkAnswer(6, 'b')">b) If the file is in CSV format</button></li>
+                <li><button onclick="checkAnswer(6, 'c')">c) If the file opened successfully</button></li>
+                <li><button onclick="checkAnswer(6, 'd')">d) If the file has a header</button></li>
+            </ul>
+            <div class="feedback" id="feedback6">
+                <div class="feedback correct">Correct! Always check file.is_open() to ensure the file was opened before attempting to read from it.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const answers = {
+            1: 'c',
+            2: 'b',
+            3: 'c',
+            4: 'c',
+            5: 'c',
+            6: 'c'
+        };
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            const correctFeedback = feedbackElement.querySelector('.feedback.correct');
+            const incorrectFeedback = feedbackElement.querySelector('.feedback.incorrect');
+            if (selectedOption === answers[questionNumber]) {
+                /*feedbackElement.innerHTML = "Correct!";*/
+                /*feedbackElement.className = "feedback correct";*/
+                correctFeedback.style.display = 'block';
+                incorrectFeedback.style.display = 'none';
+
+            } else {
+                /*feedbackElement.innerHTML = "Incorrect!";*/
+                /*feedbackElement.className = "feedback incorrect";*/
+                correctFeedback.style.display = 'none';
+                incorrectFeedback.style.display = 'block';
+            }
+            feedbackElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

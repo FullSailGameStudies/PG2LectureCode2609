@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{d0747941-9869-47f6-99a8-f004862baf76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc\Console">
+      <UniqueIdentifier>{4639ad9c-3092-43f7-8bd8-2fdecffe2666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc\Input">
+      <UniqueIdentifier>{f1466d14-fca6-4390-b848-25628d2d4903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc\Graphics">
+      <UniqueIdentifier>{f12213b8-3963-4271-be96-4c1cdeefe5a1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Lectures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day7.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Shared\Console\Console.cpp">
+      <Filter>Misc\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Shared\Input\Input.cpp">
+      <Filter>Misc\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Day8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Day9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTextures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Shared\PG2Graphics\PG2Graphics.cpp">
+      <Filter>Misc\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Shared\PG2Graphics\PG2Texture.cpp">
+      <Filter>Misc\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="DayCode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Day7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\Console\Console.h">
+      <Filter>Misc\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\Input\Input.h">
+      <Filter>Misc\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Day8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Day9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="final.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="friends.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="nested.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="static.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Inheritance.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Polymorphism.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTextures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\PG2Graphics\PG2Graphics.h">
+      <Filter>Misc\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Shared\PG2Graphics\PG2Texture.h">
+      <Filter>Misc\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="DayCode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="cards_02.png">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="consola.ttf">
+      <Filter>Resource Files</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+</Project>

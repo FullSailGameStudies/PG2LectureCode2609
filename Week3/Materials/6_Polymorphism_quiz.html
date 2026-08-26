@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Polymorphism Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #CCDC3C;
+            background-color: #303030;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+            .question h3 {
+                margin-bottom: 10px;
+            }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .options li {
+                margin-bottom: 10px;
+            }
+
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>C++ Polymorphism Quiz</h1>
+        <div class="question" id="question1">
+            <h3>1. Which keyword is used in the base class to enable runtime polymorphism?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(1, 'a')">a) static</button></li>
+                <li><button onclick="checkAnswer(1, 'b')">b) virtual</button></li>
+                <li><button onclick="checkAnswer(1, 'c')">c) override</button></li>
+                <li><button onclick="checkAnswer(1, 'd')">d) final</button></li>
+            </ul>
+            <div class="feedback" id="feedback1">
+                <div class="feedback correct">Correct! The virtual keyword allows a function to be overridden in derived classes and enables dynamic dispatch.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            <h3>2. What does the override keyword do in C++?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(2, 'a')">a) Prevents a function from being overridden</button></li>
+                <li><button onclick="checkAnswer(2, 'b')">b) Forces a function to be virtual</button></li>
+                <li><button onclick="checkAnswer(2, 'c')">c) Ensures a function is overriding a base class virtual function</button></li>
+                <li><button onclick="checkAnswer(2, 'd')">d) Makes a function static</button></li>
+            </ul>
+            <div class="feedback" id="feedback2">
+                <div class="feedback correct">Correct! override helps catch errors by ensuring the function matches a virtual function in the base class.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question3">
+            <h3>3. What is the output of the following code?</h3>
+            <pre>
+class Base {
+public:
+    virtual void show() { cout << "Base"; }
+};
+
+class Derived : public Base {
+public:
+    void show() override { cout << "Derived"; }
+};
+
+int main() {
+    Base* b = new Derived();
+    b->show();
+    return 0;
+}
+</pre>
+            <ul class="options">
+                <li><button onclick="checkAnswer(3, 'a')">a) Base</button></li>
+                <li><button onclick="checkAnswer(3, 'b')">b) Derived</button></li>
+                <li><button onclick="checkAnswer(3, 'c')">c) Compilation error</button></li>
+                <li><button onclick="checkAnswer(3, 'd')">d) Runtime error</button></li>
+            </ul>
+            <div class="feedback" id="feedback3">
+                <div class="feedback correct">Correct! The base class pointer points to a derived object, and show() is virtual, so the derived version is called.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question4">
+            <h3>4. What is the term for the mechanism that determines which function to call at runtime?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(4, 'a')">a) Static binding</button></li>
+                <li><button onclick="checkAnswer(4, 'b')">b) Function overloading</button></li>
+                <li><button onclick="checkAnswer(4, 'c')">c) Dynamic dispatch</button></li>
+                <li><button onclick="checkAnswer(4, 'd')">d) Operator overloading</button></li>
+            </ul>
+            <div class="feedback" id="feedback4">
+                <div class="feedback correct">Correct! Dynamic dispatch uses the vtable to resolve function calls at runtime based on the actual object type.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question5">
+            <h3>5. Which of the following will cause a compile-time error?</h3>
+            <pre>
+class A {
+public:
+    virtual void foo() const {}
+};
+
+class B : public A {
+public:
+    void foo() {}  // No const
+};
+
+</pre>
+            <ul class="options">
+                <li><button onclick="checkAnswer(5, 'a')">a) No error</button></li>
+                <li><button onclick="checkAnswer(5, 'b')">b) Runtime error</button></li>
+                <li><button onclick="checkAnswer(5, 'c')">c) Compile-time error due to missing const</button></li>
+                <li><button onclick="checkAnswer(5, 'd')">d) Compile-time error due to missing virtual</button></li>
+            </ul>
+            <div class="feedback" id="feedback5">
+                <div class="feedback correct">Correct! The function signatures must match exactly, including const. Otherwise, it's not considered an override.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'c',
+            3: 'b',
+            4: 'c',
+            5: 'c'
+        };
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            const correctFeedback = feedbackElement.querySelector('.feedback.correct');
+            const incorrectFeedback = feedbackElement.querySelector('.feedback.incorrect');
+            if (selectedOption === answers[questionNumber]) {
+                correctFeedback.style.display = 'block';
+                incorrectFeedback.style.display = 'none';
+
+            } else {
+                correctFeedback.style.display = 'none';
+                incorrectFeedback.style.display = 'block';
+            }
+            feedbackElement.style.display = "block";
+
+        //    if (selectedOption === answers[questionNumber]) {
+        //        feedbackElement.innerHTML = "Correct!";
+        //        feedbackElement.className = "feedback correct";
+        //    } else {
+        //        feedbackElement.innerHTML = "Incorrect!";
+        //        feedbackElement.className = "feedback incorrect";
+        //    }
+        //    feedbackElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

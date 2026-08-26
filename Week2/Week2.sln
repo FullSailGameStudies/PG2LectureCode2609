@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11408.102 d18.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lectures", "Lectures\Lectures.vcxproj", "{5091CB7D-398F-4E59-9A8C-3ECB529FDBB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		..\Shared\0_Setup.md = ..\Shared\0_Setup.md
+		..\Shared\FAQ_General.md = ..\Shared\FAQ_General.md
+		..\Shared\FAQ_GitHub.md = ..\Shared\FAQ_GitHub.md
+		Materials\FAQ_Lab2.md = Materials\FAQ_Lab2.md
+		..\Shared\PG2_Rules.md = ..\Shared\PG2_Rules.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TopicQuizzes", "TopicQuizzes", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		Materials\1_Recursion_quiz.html = Materials\1_Recursion_quiz.html
+		Materials\2_Pseudocode_quiz.html = Materials\2_Pseudocode_quiz.html
+		Materials\3_Sorting_quiz.html = Materials\3_Sorting_quiz.html
+		Materials\4_Searching_quiz.html = Materials\4_Searching_quiz.html
+		Materials\5_Maps_quiz.html = Materials\5_Maps_quiz.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Topics", "Topics", "{B81FACB7-848E-4026-8A0D-9449C0C58384}"
+	ProjectSection(SolutionItems) = preProject
+		Materials\1_Recursion.md = Materials\1_Recursion.md
+		Materials\2_Pseudocode.md = Materials\2_Pseudocode.md
+		Materials\3_Sorting.md = Materials\3_Sorting.md
+		Materials\4_Searching.md = Materials\4_Searching.md
+		Materials\5_Maps.md = Materials\5_Maps.md
+		Materials\6_TimeComplexity.md = Materials\6_TimeComplexity.md
+		Materials\Day04.md = Materials\Day04.md
+		Materials\Day05.md = Materials\Day05.md
+		Materials\Day06.md = Materials\Day06.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5091CB7D-398F-4E59-9A8C-3ECB529FDBB3}.Debug|x64.ActiveCfg = Debug|x64
+		{5091CB7D-398F-4E59-9A8C-3ECB529FDBB3}.Debug|x64.Build.0 = Debug|x64
+		{5091CB7D-398F-4E59-9A8C-3ECB529FDBB3}.Debug|x86.ActiveCfg = Debug|Win32
+		{5091CB7D-398F-4E59-9A8C-3ECB529FDBB3}.Debug|x86.Build.0 = Debug|Win32
+		{5091CB7D-398F-4E59-9A8C-3ECB529FDBB3}.Release|x64.ActiveCfg = Release|x64
+		{5091CB7D-398F-4E59-9A8C-3ECB529FDBB3}.Release|x64.Build.0 = Release|x64
+		{5091CB7D-398F-4E59-9A8C-3ECB529FDBB3}.Release|x86.ActiveCfg = Release|Win32
+		{5091CB7D-398F-4E59-9A8C-3ECB529FDBB3}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
+		{B81FACB7-848E-4026-8A0D-9449C0C58384} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9CCA9C2C-5B87-47C6-A190-53D4E10172E5}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Fields Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #CCDC3C;
+            background-color: #303030;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>C++ Fields Quiz</h1>
+        <div class="question" id="question1">
+            <h3>1. What is a field in a C++ class?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(1, 'a')">a) A function that performs calculations</button></li>
+                <li><button onclick="checkAnswer(1, 'b')">b) A variable declared inside a class</button></li>
+                <li><button onclick="checkAnswer(1, 'c')">c) A global variable</button></li>
+                <li><button onclick="checkAnswer(1, 'd')">d) A pointer to a class</button></li>
+            </ul>
+            <div class="feedback" id="feedback1">
+                <div class="feedback correct">Correct! Fields are variables that store the state of an object and are defined within a class.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            <h3>2. What is the default access modifier for fields in a C++ class?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(2, 'a')">a) public</button></li>
+                <li><button onclick="checkAnswer(2, 'b')">b) protected</button></li>
+                <li><button onclick="checkAnswer(2, 'c')">c) private</button></li>
+                <li><button onclick="checkAnswer(2, 'd')">d) static</button></li>
+            </ul>
+            <div class="feedback" id="feedback2">
+                <div class="feedback correct">Correct! In C++, class members (including fields) are private by default unless specified otherwise.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question3">
+            <h3>3. Which of the following is a good naming convention for a private field?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(3, 'a')">a) age</button></li>
+                <li><button onclick="checkAnswer(3, 'b')">b) Age</button></li>
+                <li><button onclick="checkAnswer(3, 'c')">c) m_age</button></li>
+                <li><button onclick="checkAnswer(3, 'd')">d) AGE</button></li>
+            </ul>
+            <div class="feedback" id="feedback3">
+                <div class="feedback correct">Correct! Prefixing with m_ is a common convention to indicate a member (field) variable.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question4">
+            <h3>4. What happens when two objects of the same class are created?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(4, 'a')">a) They share the same fields</button></li>
+                <li><button onclick="checkAnswer(4, 'b')">b) They have independent copies of the fields</button></li>
+                <li><button onclick="checkAnswer(4, 'c')">c) Only one object can store field values</button></li>
+                <li><button onclick="checkAnswer(4, 'd')">d) Fields are not initialized</button></li>
+            </ul>
+            <div class="feedback" id="feedback4">
+                <div class="feedback correct">Correct! Each object has its own copy of the class's fields, allowing them to maintain separate states.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question5">
+            <h3>5. Why are fields often declared as private?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(5, 'a')">a) To make them accessible from anywhere</button></li>
+                <li><button onclick="checkAnswer(5, 'b')">b) To reduce memory usage</button></li>
+                <li><button onclick="checkAnswer(5, 'c')">c) To enforce encapsulation and protect data</button></li>
+                <li><button onclick="checkAnswer(5, 'd')">d) To allow inheritance</button></li>
+            </ul>
+            <div class="feedback" id="feedback5">
+                <div class="feedback correct">Correct! Declaring fields as private ensures that they can only be accessed or modified through controlled interfaces (e.g., getters/setters).</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question6">
+            <h3>6. Which keyword is used to refer to the current object’s fields when they are shadowed by parameters?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(6, 'a')">a) self</button></li>
+                <li><button onclick="checkAnswer(6, 'b')">b) this</button></li>
+                <li><button onclick="checkAnswer(6, 'c')">c) super</button></li>
+                <li><button onclick="checkAnswer(6, 'd')">d) object</button></li>
+            </ul>
+            <div class="feedback" id="feedback6">
+                <div class="feedback correct">Correct! The this pointer refers to the current object and is used to distinguish between fields and parameters with the same name.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'c',
+            3: 'c',
+            4: 'b',
+            5: 'c',
+            6: 'b'
+        };
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            const correctFeedback = feedbackElement.querySelector('.feedback.correct');
+            const incorrectFeedback = feedbackElement.querySelector('.feedback.incorrect');
+            if (selectedOption === answers[questionNumber]) {
+                /*feedbackElement.innerHTML = "Correct!";*/
+                /*feedbackElement.className = "feedback correct";*/
+                correctFeedback.style.display = 'block';
+                incorrectFeedback.style.display = 'none';
+
+            } else {
+                /*feedbackElement.innerHTML = "Incorrect!";*/
+                /*feedbackElement.className = "feedback incorrect";*/
+                correctFeedback.style.display = 'none';
+                incorrectFeedback.style.display = 'block';
+            }
+            feedbackElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

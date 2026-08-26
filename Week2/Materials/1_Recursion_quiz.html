@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Recursion Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #CCDC3C;
+            background-color: #303030;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>C++ Recursion Quiz</h1>
+        <div class="question" id="question1">
+            <h3>1. What is the base case in recursion?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(1, 'a')">a) The part where the function calls itself</button></li>
+                <li><button onclick="checkAnswer(1, 'b')">b) The condition that stops the recursion</button></li>
+                <li><button onclick="checkAnswer(1, 'c')">c) The maximum depth of recursion</button></li>
+                <li><button onclick="checkAnswer(1, 'd')">d) The return value of the function</button></li>
+            </ul>
+            <div class="feedback" id="feedback1">
+                <div class="feedback correct">Correct! The base case is the condition that stops the recursive calls and prevents infinite recursion.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            <h3>2. What will the following code output?</h3>
+            <pre>
+int factorial(int n) {
+    if (n == 0) return 1;
+    return n * factorial(n - 1);
+}
+int main() {
+    cout << factorial(3);
+}
+            </pre>
+            <ul class="options">
+                <li><button onclick="checkAnswer(2, 'a')">a) 3;</button></li>
+                <li><button onclick="checkAnswer(2, 'b')">b) 6</button></li>
+                <li><button onclick="checkAnswer(2, 'c')">c) 9</button></li>
+                <li><button onclick="checkAnswer(2, 'd')">d) 1</button></li>
+            </ul>
+            <div class="feedback" id="feedback2">
+                <div class="feedback correct">Correct! factorial(3) = 3 × 2 × 1 = 6</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question3">
+            <h3>3. Which of the following problems is best solved using recursion?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(3, 'a')">a) Calculating the average of numbers</button></li>
+                <li><button onclick="checkAnswer(3, 'b')">b) Sorting an array using bubble sort</button></li>
+                <li><button onclick="checkAnswer(3, 'c')">c) Traversing a binary tree</button></li>
+                <li><button onclick="checkAnswer(3, 'd')">d) Finding the largest number in an array</button></li>
+            </ul>
+            <div class="feedback" id="feedback3">
+                <div class="feedback correct">Correct! Tree traversal (like in-order, pre-order, post-order) is naturally recursive due to the hierarchical structure of trees.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question4">
+            <h3>4. What is the major drawback of naive recursion in computing Fibonacci numbers?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(4, 'a')">a) It uses too much memory</button></li>
+                <li><button onclick="checkAnswer(4, 'b')">b) It is difficult to implement</button></li>
+                <li><button onclick="checkAnswer(4, 'c')">c) It performs redundant calculations</button></li>
+                <li><button onclick="checkAnswer(4, 'd')">d) It cannot be compiled</button></li>
+            </ul>
+            <div class="feedback" id="feedback4">
+                <div class="feedback correct">Correct! Naive recursion recalculates the same Fibonacci values multiple times, leading to exponential time complexity.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question5">
+            <h3>5. What happens if a recursive function lacks a base case?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(5, 'a')">a) It returns 0</button></li>
+                <li><button onclick="checkAnswer(5, 'b')">b) It throws a compile-time error</button></li>
+                <li><button onclick="checkAnswer(5, 'c')">c) It results in a stack overflow</button></li>
+                <li><button onclick="checkAnswer(5, 'd')">d) It runs infinitely without any issue</button></li>
+            </ul>
+            <div class="feedback" id="feedback5">
+                <div class="feedback correct">Correct! Without a base case, the function keeps calling itself until the call stack is exhausted, causing a stack overflow.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'b',
+            3: 'c',
+            4: 'c',
+            5: 'c'
+        };
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            const correctFeedback = feedbackElement.querySelector('.feedback.correct');
+            const incorrectFeedback = feedbackElement.querySelector('.feedback.incorrect');
+            if (selectedOption === answers[questionNumber]) {
+                /*feedbackElement.innerHTML = "Correct!";*/
+                /*feedbackElement.className = "feedback correct";*/
+                correctFeedback.style.display = 'block';
+                incorrectFeedback.style.display = 'none';
+
+            } else {
+                /*feedbackElement.innerHTML = "Incorrect!";*/
+                /*feedbackElement.className = "feedback incorrect";*/
+                correctFeedback.style.display = 'none';
+                incorrectFeedback.style.display = 'block';
+            }
+            feedbackElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

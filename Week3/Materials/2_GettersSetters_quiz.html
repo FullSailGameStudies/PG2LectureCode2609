@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Getters and Setters Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #CCDC3C;
+            background-color: #303030;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>C++ Fields Quiz</h1>
+        <div class="question" id="question1">
+            <h3>1. What is the primary purpose of using getters and setters in a C++ class?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(1, 'a')">a) To reduce the number of class members</button></li>
+                <li><button onclick="checkAnswer(1, 'b')">b) To allow direct access to private variables</button></li>
+                <li><button onclick="checkAnswer(1, 'c')">c) To encapsulate and control access to class data</button></li>
+                <li><button onclick="checkAnswer(1, 'd')">d) To make the code run faster</button></li>
+            </ul>
+            <div class="feedback" id="feedback1">
+                <div class="feedback correct">Correct! Getters and setters are used to encapsulate data and provide controlled access to private members.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            <h3>2. Which of the following is a correct declaration of a getter for a private int age member?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(2, 'a')">a) int getAge() { return age; }</button></li>
+                <li><button onclick="checkAnswer(2, 'b')">b) int getAge() const { return age; }</button></li>
+                <li><button onclick="checkAnswer(2, 'c')">c) void getAge() { return age; }</button></li>
+                <li><button onclick="checkAnswer(2, 'd')">d) int getAge() const { age; }</button></li>
+            </ul>
+            <div class="feedback" id="feedback2">
+                <div class="feedback correct">Correct! The getter should return an int and be marked const since it doesn't modify the object.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question3">
+            <h3>3. What happens if you try to access a private member variable directly from outside the class?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(3, 'a')">a) It compiles and runs normally</button></li>
+                <li><button onclick="checkAnswer(3, 'b')">b) It causes a runtime error</button></li>
+                <li><button onclick="checkAnswer(3, 'c')">c) It results in a compile-time error</button></li>
+                <li><button onclick="checkAnswer(3, 'd')">d) It automatically calls the getter</button></li>
+            </ul>
+            <div class="feedback" id="feedback3">
+                <div class="feedback correct">Correct! Private members cannot be accessed directly from outside the class, leading to a compile-time error.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question4">
+            <h3>4. Which of the following is a benefit of using a setter function?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(4, 'a')">a) It allows you to bypass encapsulation</button></li>
+                <li><button onclick="checkAnswer(4, 'b')">b) It can include validation logic before setting a value</button></li>
+                <li><button onclick="checkAnswer(4, 'c')">c) It makes the variable public</button></li>
+                <li><button onclick="checkAnswer(4, 'd')">d) It automatically logs all changes</button></li>
+            </ul>
+            <div class="feedback" id="feedback4">
+                <div class="feedback correct">Correct! Setters can include logic to validate or sanitize input before modifying the member variable.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question5">
+            <h3>5. What happens if you call setAge(-5)?</h3>
+            <pre>
+void setAge(int a) {
+    if (a > 0 && a < 150) age = a;
+}
+</pre>
+            <ul class="options">
+                <li><button onclick="checkAnswer(5, 'a')">a) The age is set to -5</button></li>
+                <li><button onclick="checkAnswer(5, 'b')">b) The age is set to 0</button></li>
+                <li><button onclick="checkAnswer(5, 'c')">c) The age remains unchanged</button></li>
+                <li><button onclick="checkAnswer(5, 'd')">d) The program crashes</button></li>
+            </ul>
+            <div class="feedback" id="feedback5">
+                <div class="feedback correct">Correct! The condition fails, so age is not updated.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question6">
+            <h3>6. Why might you choose to omit a setter for a class member?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(6, 'a')">a) To make the class compile faster</button></li>
+                <li><button onclick="checkAnswer(6, 'b')">b) To prevent the member from being read</button></li>
+                <li><button onclick="checkAnswer(6, 'c')">c) To make the member read-only</button></li>
+                <li><button onclick="checkAnswer(6, 'd')">d) To allow direct access to the member</button></li>
+            </ul>
+            <div class="feedback" id="feedback6">
+                <div class="feedback correct">Correct! Omitting the setter makes the member effectively read-only from outside the class.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const answers = {
+            1: 'c',
+            2: 'b',
+            3: 'c',
+            4: 'b',
+            5: 'c',
+            6: 'c'
+        };
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            const correctFeedback = feedbackElement.querySelector('.feedback.correct');
+            const incorrectFeedback = feedbackElement.querySelector('.feedback.incorrect');
+            if (selectedOption === answers[questionNumber]) {
+                /*feedbackElement.innerHTML = "Correct!";*/
+                /*feedbackElement.className = "feedback correct";*/
+                correctFeedback.style.display = 'block';
+                incorrectFeedback.style.display = 'none';
+
+            } else {
+                /*feedbackElement.innerHTML = "Incorrect!";*/
+                /*feedbackElement.className = "feedback incorrect";*/
+                correctFeedback.style.display = 'none';
+                incorrectFeedback.style.display = 'block';
+            }
+            feedbackElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

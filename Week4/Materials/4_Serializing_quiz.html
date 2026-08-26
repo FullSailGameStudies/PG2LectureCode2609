@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Serializing Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #CCDC3C;
+            background-color: #303030;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+            .question h3 {
+                margin-bottom: 10px;
+            }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .options li {
+                margin-bottom: 10px;
+            }
+
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>C++ Serializing Quiz</h1>
+        <div class="question" id="question1" hidden="hidden">
+            <h3>1. What is the purpose of overloading the << operator in the context of CSV serialization?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(1, 'a')">a) To read data from a CSV file</button></li>
+                <li><button onclick="checkAnswer(1, 'b')">b) To define how an object is written to an output stream</button></li>
+                <li><button onclick="checkAnswer(1, 'c')">c) To compare two objects</button></li>
+                <li><button onclick="checkAnswer(1, 'd')">d) To convert a string to an object</button></li>
+            </ul>
+            <div class="feedback" id="feedback1">
+                <div class="feedback correct">Correct! Overloading << allows you to customize how an object is printed or written to a file, which is essential for serialization.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            <h3>1. Which C++ class is used to write data to a file?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(2, 'a')">a) ifstream</button></li>
+                <li><button onclick="checkAnswer(2, 'b')">b) fstream</button></li>
+                <li><button onclick="checkAnswer(2, 'c')">c) ofstream</button></li>
+                <li><button onclick="checkAnswer(2, 'd')">d) iostream</button></li>
+            </ul>
+            <div class="feedback" id="feedback2">
+                <div class="feedback correct">Correct! ofstream is the output file stream class used to write data to files.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question3" hidden="hidden">
+            <h3>3. Which of the following is a benefit of using operator overloading for serialization?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(3, 'a')">a) It reduces memory usage</button></li>
+                <li><button onclick="checkAnswer(3, 'b')">b) It simplifies object comparison</button></li>
+                <li><button onclick="checkAnswer(3, 'c')">c) It allows intuitive syntax for writing objects to streams</button></li>
+                <li><button onclick="checkAnswer(3, 'd')">d) It automatically encrypts the data</button></li>
+            </ul>
+            <div class="feedback" id="feedback3">
+                <div class="feedback correct">Correct! Overloading << makes it easy to write objects using stream << object.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question4">
+            <h3>2. What happens if you forget to close the output file after writing?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(4, 'a')">a) The file is deleted</button></li>
+                <li><button onclick="checkAnswer(4, 'b')">b) The data may not be saved properly</button></li>
+                <li><button onclick="checkAnswer(4, 'c')">c) The program crashes</button></li>
+                <li><button onclick="checkAnswer(4, 'd')">d) The file becomes read-only</button></li>
+            </ul>
+            <div class="feedback" id="feedback4">
+                <div class="feedback correct">Correct! Not closing the file can result in data not being flushed from the buffer to disk.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const answers = {
+            1: 'b',
+            2: 'c',
+            3: 'c',
+            4: 'b'
+        };
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            const correctFeedback = feedbackElement.querySelector('.feedback.correct');
+            const incorrectFeedback = feedbackElement.querySelector('.feedback.incorrect');
+            if (selectedOption === answers[questionNumber]) {
+                correctFeedback.style.display = 'block';
+                incorrectFeedback.style.display = 'none';
+
+            } else {
+                correctFeedback.style.display = 'none';
+                incorrectFeedback.style.display = 'block';
+            }
+            feedbackElement.style.display = "block";
+
+            //    if (selectedOption === answers[questionNumber]) {
+            //        feedbackElement.innerHTML = "Correct!";
+            //        feedbackElement.className = "feedback correct";
+            //    } else {
+            //        feedbackElement.innerHTML = "Incorrect!";
+            //        feedbackElement.className = "feedback incorrect";
+            //    }
+            //    feedbackElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

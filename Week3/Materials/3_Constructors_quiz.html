@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Constructors Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #CCDC3C;
+            background-color: #303030;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .feedback {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>C++ Constructors Quiz</h1>
+        <div class="question" id="question1">
+            <h3>1. What is the primary purpose of a constructor in C++?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(1, 'a')">a) To destroy objects</button></li>
+                <li><button onclick="checkAnswer(1, 'b')">b) To allocate memory manually</button></li>
+                <li><button onclick="checkAnswer(1, 'c')">c) To initialize objects when they are created</button></li>
+                <li><button onclick="checkAnswer(1, 'd')">d) To call member functions</button></li>
+            </ul>
+            <div class="feedback" id="feedback1">
+                <div class="feedback correct">Correct! Constructors are automatically called when an object is instantiated to initialize its data members.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question2">
+            <h3>2. Which of the following is a valid constructor declaration for a class named Book?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(2, 'a')">a) void Book() {}</button></li>
+                <li><button onclick="checkAnswer(2, 'b')">b) book() {}</button></li>
+                <li><button onclick="checkAnswer(2, 'c')">c) Book() {}</button></li>
+                <li><button onclick="checkAnswer(2, 'd')">d) int Book() {}</button></li>
+            </ul>
+            <div class="feedback" id="feedback2">
+                <div class="feedback correct">Correct! A constructor has the same name as the class and no return type.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question3">
+            <h3>3. What is a member initialization list used for?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(3, 'a')">a) To call member functions</button></li>
+                <li><button onclick="checkAnswer(3, 'b')">b) To initialize base classes only</button></li>
+                <li><button onclick="checkAnswer(3, 'c')">c) To initialize data members before the constructor body executes</button></li>
+                <li><button onclick="checkAnswer(3, 'd')">d) To allocate memory dynamically</button></li>
+            </ul>
+            <div class="feedback" id="feedback3">
+                <div class="feedback correct">Correct! Member initialization lists are used to directly initialize fields, especially useful for const, reference, and complex types.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question4">
+            <h3>4. Which of the following members must be initialized using a member initialization list?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(4, 'a')">a) int</button></li>
+                <li><button onclick="checkAnswer(4, 'b')">b) float</button></li>
+                <li><button onclick="checkAnswer(4, 'c')">c) const int</button></li>
+                <li><button onclick="checkAnswer(4, 'd')">d) char</button></li>
+            </ul>
+            <div class="feedback" id="feedback4">
+                <div class="feedback correct">Correct! const members must be initialized at the time of object creation and cannot be assigned later.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+        <div class="question" id="question5">
+            <h3>5. What happens if you do not define any constructor in your class?</h3>
+            <ul class="options">
+                <li><button onclick="checkAnswer(5, 'a')">a) The program will not compile</button></li>
+                <li><button onclick="checkAnswer(5, 'b')">b) The compiler provides a default constructor</button></li>
+                <li><button onclick="checkAnswer(5, 'c')">c) The class cannot be instantiated</button></li>
+                <li><button onclick="checkAnswer(5, 'd')">d) All members are initialized to zero</button></li>
+            </ul>
+            <div class="feedback" id="feedback5">
+                <div class="feedback correct">Correct! If no constructor is defined, the compiler automatically generates a default constructor.</div>
+                <div class="feedback incorrect">Incorrect.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const answers = {
+            1: 'c',
+            2: 'c',
+            3: 'c',
+            4: 'c',
+            5: 'b'
+        };
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const feedbackElement = document.getElementById(`feedback${questionNumber}`);
+            const correctFeedback = feedbackElement.querySelector('.feedback.correct');
+            const incorrectFeedback = feedbackElement.querySelector('.feedback.incorrect');
+            if (selectedOption === answers[questionNumber]) {
+                /*feedbackElement.innerHTML = "Correct!";*/
+                /*feedbackElement.className = "feedback correct";*/
+                correctFeedback.style.display = 'block';
+                incorrectFeedback.style.display = 'none';
+
+            } else {
+                /*feedbackElement.innerHTML = "Incorrect!";*/
+                /*feedbackElement.className = "feedback incorrect";*/
+                correctFeedback.style.display = 'none';
+                incorrectFeedback.style.display = 'block';
+            }
+            feedbackElement.style.display = "block";
+        }
+    </script>
+</body>
+</html>

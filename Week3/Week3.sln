@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11408.102 d18.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lectures", "Lectures\Lectures.vcxproj", "{65B6850E-6224-40DE-8640-1D6D5436FCCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		..\Shared\0_Setup.md = ..\Shared\0_Setup.md
+		..\Shared\FAQ_General.md = ..\Shared\FAQ_General.md
+		..\Shared\FAQ_GitHub.md = ..\Shared\FAQ_GitHub.md
+		Materials\FAQ_Lab3.md = Materials\FAQ_Lab3.md
+		..\Shared\PG2_Rules.md = ..\Shared\PG2_Rules.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TopicQuizzes", "TopicQuizzes", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		Materials\1_Classes_quiz.html = Materials\1_Classes_quiz.html
+		Materials\1_Structs_quiz.html = Materials\1_Structs_quiz.html
+		Materials\2_Fields_quiz.html = Materials\2_Fields_quiz.html
+		Materials\2_GettersSetters_quiz.html = Materials\2_GettersSetters_quiz.html
+		Materials\3_Constructors_quiz.html = Materials\3_Constructors_quiz.html
+		Materials\4_Instances_quiz.html = Materials\4_Instances_quiz.html
+		Materials\5_Inheritance_quiz.html = Materials\5_Inheritance_quiz.html
+		Materials\6_Polymorphism_quiz.html = Materials\6_Polymorphism_quiz.html
+		Materials\7_Pointers_quiz.html = Materials\7_Pointers_quiz.html
+		Materials\8_Misc_quiz.html = Materials\8_Misc_quiz.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Topics", "Topics", "{2AAE9237-DE12-4B03-BE8F-1DDCBCDEC053}"
+	ProjectSection(SolutionItems) = preProject
+		Materials\1_Classes.md = Materials\1_Classes.md
+		Materials\1_FourPillars.md = Materials\1_FourPillars.md
+		Materials\1_Structs.md = Materials\1_Structs.md
+		Materials\2_Fields.md = Materials\2_Fields.md
+		Materials\2_GettersSetters.md = Materials\2_GettersSetters.md
+		Materials\3_Constructors.md = Materials\3_Constructors.md
+		Materials\4_Instances.md = Materials\4_Instances.md
+		Materials\5_Inheritance.md = Materials\5_Inheritance.md
+		Materials\6_Polymorphism.md = Materials\6_Polymorphism.md
+		Materials\7_Pointers.md = Materials\7_Pointers.md
+		Materials\7_Upcasting.md = Materials\7_Upcasting.md
+		Materials\8_Misc.md = Materials\8_Misc.md
+		Materials\Day07.md = Materials\Day07.md
+		Materials\Day08.md = Materials\Day08.md
+		Materials\Day09.md = Materials\Day09.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65B6850E-6224-40DE-8640-1D6D5436FCCF}.Debug|x64.ActiveCfg = Debug|x64
+		{65B6850E-6224-40DE-8640-1D6D5436FCCF}.Debug|x64.Build.0 = Debug|x64
+		{65B6850E-6224-40DE-8640-1D6D5436FCCF}.Debug|x86.ActiveCfg = Debug|Win32
+		{65B6850E-6224-40DE-8640-1D6D5436FCCF}.Debug|x86.Build.0 = Debug|Win32
+		{65B6850E-6224-40DE-8640-1D6D5436FCCF}.Release|x64.ActiveCfg = Release|x64
+		{65B6850E-6224-40DE-8640-1D6D5436FCCF}.Release|x64.Build.0 = Release|x64
+		{65B6850E-6224-40DE-8640-1D6D5436FCCF}.Release|x86.ActiveCfg = Release|Win32
+		{65B6850E-6224-40DE-8640-1D6D5436FCCF}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
+		{2AAE9237-DE12-4B03-BE8F-1DDCBCDEC053} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9384A38-3CED-4B5B-A497-D1B8C3EC3143}
+	EndGlobalSection
+EndGlobal
