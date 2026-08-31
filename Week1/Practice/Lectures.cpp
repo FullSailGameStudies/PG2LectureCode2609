@@ -41,7 +41,12 @@ int main(int argc, char* args[])
 			//	Use Console::Write and Console::WriteLine to print several lines of text (whatever you want to say)
 			//  Experiment with changing the colors.
 			//  Open the Console.h file (look in Misc/Console in Solution Explorer) to see how the methods are declared.
-			//
+			//			
+
+			Console::Write("Batman is the best! ", ConsoleColor::Cyan);
+			Console::WriteLine("Aquaman smells like fish.");
+			Console::WriteLine(5); 
+			
 			break;
 		}
 		case 2:
@@ -71,6 +76,9 @@ int main(int argc, char* args[])
 			//	Print the name that the user enters.
 			//	Open the Input.h file(look in Misc / Input in Solution Explorer) to see how the GetString is declared.
 			//
+			std::string supe = Input::GetString("What is your favorite superhero? ");
+			Console::WriteLine("Your favorite is " + supe + "?! Weird.\n");
+
 			break;
 		}
 		case 6:

@@ -68,6 +68,10 @@ void Day1::PartA_1_1()
 			//Part A-1.1: move player to a predefined Target spot (get target's location, player.move)
 			// 		HINT: explore the Player.h file to see what methods could be used.
 			//
+			for (int i = 0; i < 6; i++)
+			{
+				player.MoveRight();
+			}
 
 
 			while (!quit)
@@ -156,6 +160,10 @@ void Day1::PartA_1_2()
 			//Part A-1.2: move player to a predefined Target spot (get target's location, player.move)
 			// 		HINT: explore the Player.h file to see what methods could be used.
 			//
+			for (int i = 0; i < 4; i++)
+			{
+				player.MoveDown();
+			}
 
 
 			while (!quit)
@@ -247,6 +255,12 @@ void Day1::PartA_1_3()
 			//      use the move methods of the player
 			// 		HINT: explore the Player.h file to see what methods could be used.
 			//
+			for (int i = 0; i < 5; i++)
+			{
+				player.MoveDown();
+				player.MoveRight();
+			}
+			player.MoveRight();
 
 
 			while (!quit)
@@ -279,6 +293,30 @@ void Day1::PartA_1_3()
 //
 // Part A-2.2: create the DEFINITION for CreateTargets_PartA_2
 //
+std::vector<Target> Day1::CreateTargets_PartA_2(int mapSize, int colorRange)
+{
+	//fill a vector with 10 Targets
+	//randomize the position of each Target
+	//	rand() return an int between 0 - 32767
+	//  % - modulus operator. returns the remainder of a division operation
+	//  250 % 5 returns 0
+	//  254 % 5 returns 4
+	//  250 % N range that it returns is 0 - (N-1)
+	//
+	//  how to add something to a vector? push_back
+	//  use '.col' and '.row' on the Target object to set the values
+	std::vector<Target> targets;
+	for (int i = 0; i < 10; i++)
+	{
+		Target t1000;
+		t1000.col = rand() % mapSize;
+		t1000.row = rand() % mapSize;
+
+		targets.push_back(t1000);
+	}
+
+	return targets;
+}
 
 void Day1::PartA_2()
 {
@@ -325,6 +363,7 @@ void Day1::PartA_2()
 		// Part A-2.3: Call CreateTargets_PartA_2 and store the returned vector into the "targets" variable.
 		//
 		std::vector<Target> targets;
+		targets = CreateTargets_PartA_2(mapSize, colorRange);
 
 		float scale = 0.25f;
 		Player player(&engine, scale, 1, 1);
