@@ -7,13 +7,13 @@
 //
 // Part B-1.1: Add a method definition for SpawnZombies
 //
-void Day2::SpawnZombies(PG2Graphics& graphics, std::vector<Zombie>& zeeks, Player& playa)
+void Day2::SpawnZombies(PG2Graphics& graphics, std::vector<Zombie>& zeeks, const Player& playa) const
 {
 	//fill the vector with 5 zombies
 	//make sure the zombie doesn't overlap with the player
 	int x, y;
 	int pX = playa.GetXPosition(), pY = playa.GetYPosition();
-
+	
 	for (int i = 0; i < 5; i++)
 	{
 		do
@@ -26,10 +26,17 @@ void Day2::SpawnZombies(PG2Graphics& graphics, std::vector<Zombie>& zeeks, Playe
 	}
 }
 
-
 //
 // Part B-2.1: Add a method definition for RenderZombies
 //
+void Day2::RenderZombies(const std::vector<Zombie>& zeeks) const
+{
+	for (auto& zeek : zeeks)
+	{
+		zeek.Render();
+	}
+}
+
 
 //
 // Part B-3.1: Add a method definition for EraseZombies
@@ -122,6 +129,7 @@ void Day2::PartB(int option)
 				//
 				// Part B-2.3 call RenderZombies
 				//
+				RenderZombies(mobs);
 
 
 				player.Render();

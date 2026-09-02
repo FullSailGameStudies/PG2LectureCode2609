@@ -14,19 +14,22 @@ void Incrementer(int& vNum)//pass by reference (ALIAS)
 //2) use references to prevent copies
 //		copies are 'expensive'
 //	when? if the parameter is a class, use &
-void Printer(std::vector<int>& numbers)
+void Printer(const std::vector<int>& numbers)
 {
 	//range-based for loop (foreach)
 	//auto IS ALLOWED in PG2!!!
 	//use & to prevent a copy
-	for (auto& nummy : numbers)
+	for (const int& nummy : numbers)
 	{
 		std::cout << nummy << "\n";
 	}
 }
 
+const float PI = 3.1415;
 int main(int argc, char* args[])
 {
+	const int nConst = 15;
+
 	std::vector<int> nummies;
 	int nummySize = rand();
 	std::cout << nummySize << "\n";
