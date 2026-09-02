@@ -4,8 +4,50 @@
 #include <Console.h>
 #include <Input.h>
 
+//REASONS to use references:
+//1) give a different scope access to my variable(s)
+void Incrementer(int& vNum)//pass by reference (ALIAS)
+{
+	vNum++;
+}
+
+//2) use references to prevent copies
+//		copies are 'expensive'
+//	when? if the parameter is a class, use &
+void Printer(std::vector<int>& numbers)
+{
+	//range-based for loop (foreach)
+	//auto IS ALLOWED in PG2!!!
+	//use & to prevent a copy
+	for (auto& nummy : numbers)
+	{
+		std::cout << nummy << "\n";
+	}
+}
+
 int main(int argc, char* args[])
 {
+	std::vector<int> nummies;
+	int nummySize = rand();
+	std::cout << nummySize << "\n";
+	for (int i = 0; i < nummySize; i++)
+	{
+		nummies.push_back(rand());
+	}
+	Printer(nummies);
+	int vNum = 5;
+	//MUST be initialized when creating
+	int& numRef = vNum;//'points' numRef to vNum
+	numRef++;
+	std::cout << vNum << "\n";
+	int vNum2 = 10;
+	//cannot RESEAT the reference
+	//can't point it to another variable
+	numRef = vNum2;//only copies vNum2 to numRef (and vNum)
+	Incrementer(vNum);
+	std::cout << vNum << "\n";
+
+
 	Day2 day2;
 
 	int menuSelection = 0;

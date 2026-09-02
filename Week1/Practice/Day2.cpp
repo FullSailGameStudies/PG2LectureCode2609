@@ -7,6 +7,25 @@
 //
 // Part B-1.1: Add a method definition for SpawnZombies
 //
+void Day2::SpawnZombies(PG2Graphics& graphics, std::vector<Zombie>& zeeks, Player& playa)
+{
+	//fill the vector with 5 zombies
+	//make sure the zombie doesn't overlap with the player
+	int x, y;
+	int pX = playa.GetXPosition(), pY = playa.GetYPosition();
+
+	for (int i = 0; i < 5; i++)
+	{
+		do
+		{
+			x = rand() % 10;
+			y = rand() % 10;
+		} while (x == pX and y == pY);
+		Zombie zeek(&graphics, 0.5F, x, y);
+		zeeks.push_back(zeek);
+	}
+}
+
 
 //
 // Part B-2.1: Add a method definition for RenderZombies
@@ -62,6 +81,7 @@ void Day2::PartB(int option)
 			//
 			// Part B-1.3 Call SpawnZombies
 			//
+			SpawnZombies(engine, mobs, player);
 
 			bool quit = false;
 			SDL_Event e;

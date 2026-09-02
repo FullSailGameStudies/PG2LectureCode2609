@@ -320,6 +320,7 @@ std::vector<Target> Day1::CreateTargets_PartA_2(int mapSize, int colorRange)
 
 void Day1::PartA_2()
 {
+
 	//Screen dimension constants
 	const int SCREEN_WIDTH = 750;
 	const int SCREEN_HEIGHT = 750;
