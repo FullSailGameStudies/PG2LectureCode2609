@@ -37,7 +37,64 @@ int main(int argc, char* args[])
 	{
 		nummies.push_back(rand());
 	}
-	Printer(nummies);
+
+	auto bIT = nummies.begin();//get an iterator to the first item
+	int firstNummy = *bIT;//dereference the iterator to access the item
+	//loop using iterators
+	for (auto it = nummies.begin(); it != nummies.end(); it++)
+	{
+		//use * to access the item it points to
+		std::cout << *it << "\n";
+	}
+
+	std::vector<int> nums{ 1,2,2,3,4,5,5,5 };
+	//                   { 1,2,3,4,5,5,5}
+	//erase all 2's
+	for (int i = 0; i < nums.size(); i++)
+	{
+		if (nums[i] == 2)
+		{
+			auto it = nums.begin() + i;//get the iterator to the item
+			nums.erase(it);//use the iterator to erase the item
+			//move the index backwards
+			i--;
+		}
+	}
+	//OR...
+	for (int i = 0; i < nums.size();)
+	{
+		if (nums[i] == 2)
+		{
+			auto it = nums.begin() + i;//get the iterator to the item
+			nums.erase(it);//use the iterator to erase the item
+		}
+		else {//only increment i when you do NOT erase
+			i++;
+		}
+	}
+	//OR...
+	//reverse for loop
+	for (int i = nums.size() - 1; i >= 0; i--)
+	{
+		if (nums[i] == 2)
+		{
+			auto it = nums.begin() + i;//get the iterator to the item
+			nums.erase(it);//use the iterator to erase the item
+		}
+	}
+	//OR...
+	for (auto it = nums.begin(); it != nums.end(); )
+	{
+		if (*it == 2)
+		{
+			it = nums.erase(it);
+		}
+		else
+			it++;
+	}
+
+	Printer(nums);
+
 	int vNum = 5;
 	//MUST be initialized when creating
 	int& numRef = vNum;//'points' numRef to vNum

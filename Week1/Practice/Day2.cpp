@@ -38,9 +38,31 @@ void Day2::RenderZombies(const std::vector<Zombie>& zeeks) const
 }
 
 
+
 //
 // Part B-3.1: Add a method definition for EraseZombies
 //
+int Day2::KillZombies(std::vector<Zombie>& zeeks, const Player& playa) const
+{
+	int numberKilled = 0;
+	int x1 = playa.GetXPosition(), y1 = playa.GetYPosition();
+	int x2, y2;
+	for (int i = 0; i < zeeks.size(); )
+	{
+		x2 = zeeks[i].GetXPosition();
+		y2 = zeeks[i].GetYPosition();
+		float distance = sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+		if (distance < 4)
+		{
+			zeeks.erase(zeeks.begin() + i);
+			numberKilled++;
+		}
+		else
+			i++;
+	}
+	return numberKilled;
+
+}
 
 
 
@@ -110,6 +132,8 @@ void Day2::PartB(int option)
 								//
 								// Part B-3.3 Call KillZombies
 								//
+								int numErased = KillZombies(mobs, player);
+								std::cout << numErased << " were killed.\n";
 							}
 						}
 						else if (e.key.keysym.sym == SDLK_r)
@@ -118,6 +142,7 @@ void Day2::PartB(int option)
 							//
 							// Part B-1.3 Call SpawnZombies
 							//
+							SpawnZombies(engine, mobs, player);
 						}
 					}
 				}
