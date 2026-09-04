@@ -51,7 +51,7 @@ public:
 	void AddUndo(const std::string& action);
 	void AddRedo(const std::string& action);
 
-	void Interact(const std::vector<int>& map, int mapSize = 10);
+	void Interact(const std::vector<int>& map, int mapSize = 10);//default params ONLY go in the declaration
 	void Interact();
 
 	bool IsValid() { return texture_ != nullptr; }

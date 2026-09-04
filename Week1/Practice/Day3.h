@@ -16,7 +16,7 @@ private:
 	//
 	// Part C-1.1: add a default value
 	//
-	static void ShiftColor(std::vector<Target>& lights, std::vector<int>& offsets, ColorChannel channelToShift);
+	static void ShiftColor(std::vector<Target>& lights, std::vector<int>& offsets, ColorChannel channelToShift = RED);
 
 	static void MakeLights(std::vector<Target>& lights);
 	static void MakeLights(std::vector<Target>& lights, std::vector<int>& offsets, int offset = 5);

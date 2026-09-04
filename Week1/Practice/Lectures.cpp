@@ -14,21 +14,61 @@ void Incrementer(int& vNum)//pass by reference (ALIAS)
 //2) use references to prevent copies
 //		copies are 'expensive'
 //	when? if the parameter is a class, use &
-void Printer(const std::vector<int>& numbers)
+
+//all default params must appear at the end of the parameter list
+void Printer(const std::vector<int>& numbers, int top = 0)
 {
 	//range-based for loop (foreach)
 	//auto IS ALLOWED in PG2!!!
 	//use & to prevent a copy
+	int count = 0;
 	for (const int& nummy : numbers)
 	{
 		std::cout << nummy << "\n";
+		if (top != 0 && count >= top)
+			break;
 	}
+}
+
+void Info(const std::vector<int>& nums)
+{
+	//size() - # of items in the vector
+	//capacity() - length of the internal array
+	//size <= capacity
+	//ex: fuel tank.
+	//when you add something that would make
+	//the size > capacity, the vector must
+	//resize its internal array
+	//	it creates a new array with more space
+	//	copies all of the items from the old array to the new
+	//	then adds the new item to the new array
+	std::cout << "size: " << nums.size() << "\tCapacity: " << nums.capacity() << "\n";
 }
 
 const float PI = 3.1415;
 int main(int argc, char* args[])
 {
+	std::vector<int> numbers;//same as resize
+	numbers.reserve(10);//sets the capacity
+	//numbers.resize(10);//sets the size!
+	Info(numbers);
+	for (int i = 0; i < 10; i++)
+	{
+		numbers.push_back(i);
+		Info(numbers);
+	}
 	const int nConst = 15;
+
+	//copying vectors
+	//3 ways:
+	std::vector<int> numbers2 = numbers;
+	std::vector<int> numbers3(numbers);
+	std::vector<int> numbers4;
+	numbers4.reserve(numbers.size());
+	for (int i = 0; i < numbers.size(); i++)
+	{
+		numbers4.push_back(numbers[i]);
+	}
 
 	std::vector<int> nummies;
 	int nummySize = rand();
@@ -37,6 +77,7 @@ int main(int argc, char* args[])
 	{
 		nummies.push_back(rand());
 	}
+	Printer(nummies, 10);//set top to 10
 
 	auto bIT = nummies.begin();//get an iterator to the first item
 	int firstNummy = *bIT;//dereference the iterator to access the item
@@ -48,6 +89,7 @@ int main(int argc, char* args[])
 	}
 
 	std::vector<int> nums{ 1,2,2,3,4,5,5,5 };
+	Printer(nums);//set top to 0
 	//                   { 1,2,3,4,5,5,5}
 	//erase all 2's
 	for (int i = 0; i < nums.size(); i++)
@@ -146,7 +188,7 @@ int main(int argc, char* args[])
 			//			
 
 			Console::Write("Batman is the best! ", ConsoleColor::Cyan);
-			Console::WriteLine("Aquaman smells like fish.");
+			Console::WriteLine("Aquaman smells like fish.", ConsoleColor::Green, ConsoleColor::Yellow);
 			Console::WriteLine(5); 
 			
 			break;
