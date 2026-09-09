@@ -215,6 +215,7 @@ void Day4::PartA_2()
 						//
 						// Lecture: after adding BubbleSort to the Sorter class, call BubbleSort here to sort the redLightsCopy vector
 						//
+						sorter.bubbleSort(redLightsCopy);
 
 						Map screenMap(engine.Renderer(), 10);
 						engine.ClearScreen(50, 50, 50, 255);
