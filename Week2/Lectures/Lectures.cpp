@@ -5,9 +5,26 @@
 #include "Day6.h"
 #include <Input.h>
 
+void SomeFunc(int num)
+{
+	//all recursive functions REQUIRE an exit condition
+	//some code to prevent the recursive case
+	if(num < 500)//loops while this condition is TRUE
+	{
+		num++;
+		std::cout << num << "\n";
+		SomeFunc(num);//recursive case (when a function calls itself)
+	}
+}
 
 int main(int argc, char* args[])
 {
+	for (int i = 0; i < 10; ++i)
+	{
+		int num = 5;
+		std::cout << num << "\n";
+	}
+	SomeFunc(5);
 	srand(static_cast<unsigned int>(time(NULL)));
 
 	std::string hello = "Hello Week 2!";

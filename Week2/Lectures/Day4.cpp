@@ -17,6 +17,24 @@ const int SCREEN_WIDTH = 480;
 const int SCREEN_HEIGHT = 480;
 void Pyramid(SDL_Renderer* renderer, int size, int x, int y)
 {
+	//exit condition: when the rectangle hits the boundary of the window
+	//loop while this condition is FALSE
+	if (x < 0 or y < 0 or (x + size) > SCREEN_WIDTH or (y + size) > SCREEN_HEIGHT)
+ 		return;
+
+	//the going-out loop
+	SDL_Rect rect{ x,y,size,size };
+	SDL_SetRenderDrawColor(renderer, rand() % 255, rand() % 255, rand() % 255, 255);
+	SDL_RenderDrawRect(renderer, &rect);
+	SDL_RenderPresent(renderer);
+
+	//std::this_thread::sleep_for(std::chrono::milliseconds(10));
+	Pyramid(renderer, size + 2, x - 1, y - 1);//the recursive case
+
+	//the coming back loop (unwinding the stack)
+	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_RenderDrawRect(renderer, &rect);
+	SDL_RenderPresent(renderer);
 }
 void Day4::RecursionExample()
 {
@@ -66,10 +84,30 @@ void Day4::RecursionExample()
 //
 // Part A-1.1
 //
+void Bats(int i = 0)//default parameter
+{
+	if(i < 100)
+	{
+		std::cout << (char)78 << (char)65 << ' ';
+		//i++ - post increment
+		//	inside of post-increment, it ...
+		//		creates a temp variable and copies the current value into it
+		//		increments the current variable
+		//		returns the temp variable
+		//		EX: if i is 5, i++ does is
+		//			int temp = i; //sets temp to 5
+		//			increments i; //sets i to 6
+		//			returns temp; returns 5
+		//++i - pre increment
+		Bats(++i);
+	}
+}
 void Day4::PartA_1_1()
 {
+	Bats();
 	char c[] = { '\n', 66, 65, 84, 77, 65, 78, 33, 33 };
 	for (auto ch : c) std::cout << ch;
+	std::cout << "\n\n";
 
 }
 
