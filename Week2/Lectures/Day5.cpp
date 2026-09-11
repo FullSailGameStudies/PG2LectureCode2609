@@ -120,6 +120,18 @@ void Day5::PartB_2(int section)
 		//
 		// TODO: (Lecture) Part B-2.1 fill the std::map
 		// 
+		for (auto& light : allLights)
+		{
+			ColorChannel channel;
+			if (light.red > light.green and light.red > light.blue)
+				channel = ColorChannel::RED;
+			else if (light.green > light.red and light.green > light.blue)
+				channel = ColorChannel::GREEN;
+			else
+				channel = ColorChannel::BLUE;
+
+
+		}
 
 
 		switch (section)

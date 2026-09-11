@@ -4,6 +4,7 @@
 #include "Day5.h"
 #include "Day6.h"
 #include <Input.h>
+#include <map>
 
 void SomeFunc(int num)
 {
@@ -19,6 +20,51 @@ void SomeFunc(int num)
 
 int main(int argc, char* args[])
 {
+	//maps need 2 types: type of the keys and the type of the values
+	//std::string is the key type (name of the menu item)
+	//float is the value type (price of the menu item)
+	std::map<std::string, float> menu;
+
+	//2 ways to add items to a map
+	//1) "easy" way    map[key] = value;
+	menu["Pepperoni Pizza"] = 8.99f;
+	menu["Meat Lovers Pizza"] = 12.99f;
+	menu["Breadsticks"] = 3.99f;
+
+	//keys are unique
+	menu["Pepperoni Pizza"] = 9.99f;//overwrites the value
+
+	//2) "not as easy" way  map.insert(key-value-pair);
+	std::pair<std::string, float> menuPair = std::make_pair("Salad", 6.99f);
+	menu.insert(menuPair);
+	//std::pair objects have 2 parts:
+	// first and second
+	menuPair.second = 5.99f;
+	std::pair<std::map<std::string,float>::iterator,bool> itemInserted = menu.insert(menuPair);//will NOT overwrite if the key-value pair is already in the map
+	//first is the iterator to the key-value pair in the map
+	//second is whether it was inserted or not
+	if (itemInserted.second) //if it was inserted
+	{
+		std::cout << menuPair.first << " was inserted.\n";
+	}
+	else
+	{
+		std::cout << menuPair.first << " is already on the menu and it costs ";
+		std::map<std::string, float>::iterator menuIter = itemInserted.first;
+		float price = menuIter->second;
+		std::cout << price << "\n";
+	}
+
+
+	std::string menuItem = "Pepperoni Pizza";
+	float itemPrice = menu[menuItem];//it uses binary search to find it!!
+	std::cout << menuItem << " costs " << itemPrice << "\n";
+	menuItem = "Dino Nuggs"; 
+	itemPrice = menu[menuItem];//map will add it with a default value
+	std::cout << menuItem << " costs " << itemPrice << "\n";
+
+
+
 	for (int i = 0; i < 10; ++i)
 	{
 		int num = 5;
