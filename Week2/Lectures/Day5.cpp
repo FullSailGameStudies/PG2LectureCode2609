@@ -71,8 +71,9 @@ void Day5::PartB_1()
 					//
 					// Lecture: after adding the LinearSearch method to the Searcher class, Call LinearSearch on the greenLights vector to try to find the greenToFind variable
 					//
+					foundIndex = searcher.LinearSearch(greenLights, greenToFind);
 
-					if (foundIndex < 0)
+					if (foundIndex == NOT_FOUND)
 						std::cout << greenToFind << " was not found.\n";
 					else
 					{
