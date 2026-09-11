@@ -60,9 +60,45 @@ int main(int argc, char* args[])
 	float itemPrice = menu[menuItem];//it uses binary search to find it!!
 	std::cout << menuItem << " costs " << itemPrice << "\n";
 	menuItem = "Dino Nuggs"; 
-	itemPrice = menu[menuItem];//map will add it with a default value
-	std::cout << menuItem << " costs " << itemPrice << "\n";
+	//use the find function to look up a key
+	std::map<std::string, float>::iterator menuIterator = menu.find(menuItem);
+	//if it returns map.end() it means it wasn't found
+	if (menuIterator == menu.end())
+	{
+		//we didn't find it
+		std::cout << menuItem << " is not on the menu. Try McDonald's\n";
+	}
+	else
+	{
+		//menuIterator "points" to the key-value-pair
+		std::cout << menuItem << " costs " << menuIterator->second << "\n";
+	}
 
+	//itemPrice = menu[menuItem];//map will add it with a default value
+	//std::cout << menuItem << " costs " << itemPrice << "\n";
+
+	//ways to loop:
+	//1) iterator loop
+	std::cout << "\n\niterator for loop: \n";
+	for (auto i = menu.begin(); i != menu.end(); i++)
+	{
+		//iterator points to the key-value pair
+		std::cout << i->first << "\t " << i->second << "\n";
+	}
+
+	//2) range-based for loop
+	std::cout << "\n\n range-based for loop (foreach): \n";
+	for (auto& kvp : menu)
+	{
+		std::cout << kvp.first << "\t " << kvp.second << "\n";
+	}
+
+	//3) range-based for loop with structured bindings
+	std::cout << "\n\n range-based for loop (structured bindings): \n";
+	for (auto& [itemName,itemPrice] : menu)
+	{
+		std::cout << itemName << "\t " << itemPrice << "\n";
+	}
 
 
 	for (int i = 0; i < 10; ++i)

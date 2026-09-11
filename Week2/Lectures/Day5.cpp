@@ -130,7 +130,28 @@ void Day5::PartB_2(int section)
 			else
 				channel = ColorChannel::BLUE;
 
+			std::map<ColorChannel, std::vector<Light>>::iterator foundChannel = 
+				groupedColors.find(channel);
 
+			if (foundChannel == groupedColors.end())
+			{
+				//the channel is not in the map yet
+				//create a vector to hold the light
+				//add the vector to the map with the channel as the key
+				std::vector<Light> newChannel;
+				newChannel.push_back(light);
+				groupedColors[channel] = newChannel;
+			}
+			else
+			{
+				//the channel is already in the map
+				//use the iterator that points to the key-value-pair
+				//first of that is the channel
+				//second of that is the vector
+				//access the vector and add the light to it
+				std::vector<Light>& channelLights = foundChannel->second;
+				channelLights.push_back(light);
+			}
 		}
 
 
@@ -145,6 +166,27 @@ void Day5::PartB_2(int section)
 			//
 			// TODO: (Lecture) Part B-2.2 loop over the std::map
 			//
+			for (auto& [channel,channelLights] : groupedColors)
+			{
+				switch (channel)
+				{
+				case ColorChannel::RED:
+					std::cout << "RED: ";
+					break;
+				case ColorChannel::GREEN:
+					std::cout << "GREEN: ";
+					break;
+				case ColorChannel::BLUE:
+					std::cout << "BLUE: ";
+					break;
+				default:
+					break;
+				}
+				std::cout << channelLights.size() << "\n";
+				grouper.DrawLights(screenMap, channelLights, columnRange, column, row);
+			}
+
+
 
 
 			//Update screen
@@ -162,6 +204,15 @@ void Day5::PartB_2(int section)
 			//
 			// TODO: (Lecture)  Part B-3 call std::map's find method
 			//
+			foundBlues = groupedColors.find(ColorChannel::BLUE);
+			if (foundBlues == groupedColors.end())
+			{
+				std::cout << "BLUE channel not found\n";
+			}
+			else
+			{
+				std::cout << "There are " << foundBlues->second.size() << " blue lights.\n";
+			}
 
 			for (auto& [channel, channelLights] : groupedColors)
 			{
