@@ -234,6 +234,43 @@ void Day5::PartB_2(int section)
 			//
 			// TODO: (Lecture)  Part C-1 erasing from a std::map
 			//
+			foundBlues = groupedColors.find(ColorChannel::BLUE);
+			if (foundBlues == groupedColors.end())
+			{
+				std::cout << "The are no blue lights.\n";
+			}
+			else
+			{
+				//range 0-255
+				//% - divides by N and returns the remainder.
+				//    remainder cannot be N
+				//    x / 5 -- remainder range is 0 - 4
+				//	  10 / 5 = 2 w/ remainder of 0
+				int blueUpperLimit = 256;// rand() % 256;
+
+				//get the vector for the blue channel
+				//iterator points to the key-value pair
+				//iterator->first is the key
+				//iterator->second is the value
+				std::vector<Light>& blueLights = foundBlues->second;
+				int count = 0;
+				for (int i = 0; i < blueLights.size(); )
+				{
+					if (blueUpperLimit > blueLights[i].blue)
+					{
+						blueLights.erase(blueLights.begin() + i);
+						count++;
+					}
+					else
+						i++;
+				}
+				std::cout << "Erased " << count << " lights.\n";
+
+				if (blueLights.empty())//or blueLights.size() == 0
+				{
+					groupedColors.erase(foundBlues);//erase the channel from the map
+				}
+			}
 
 
 			for (auto& [channel, channelLights] : groupedColors)

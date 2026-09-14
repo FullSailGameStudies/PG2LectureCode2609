@@ -55,6 +55,22 @@ int main(int argc, char* args[])
 		std::cout << price << "\n";
 	}
 
+	auto itemToErase = menu.find("Salad");
+	if (itemToErase == menu.end()) //not found
+	{
+		std::cout << "Salad is not on the menu.\n";
+	}
+	else
+	{
+		//even though it is super-fast (log(n)), it's not free
+		//IF you already have the iterator, use the iterator to erase
+		//menu.erase("Salad");//this requires another key lookup
+		//OR...
+		menu.erase(itemToErase);//returns an iterator to the next item in the map
+	}
+
+	menu.erase("Salad");//returns a number which is the number of items erased
+
 
 	std::string menuItem = "Pepperoni Pizza";
 	float itemPrice = menu[menuItem];//it uses binary search to find it!!
