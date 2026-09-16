@@ -1,5 +1,6 @@
 #pragma once
 #include "enums.h"
+#include <string>
 
 class Card
 {
@@ -8,6 +9,11 @@ public:
 	Card(CardFace face, CardSuit suit) :
 		face_(face), suit_(suit)
 	{}
+
+	int Value() const;
+	void Print() const;
+	std::string FaceName() const;
+	std::string SuitName() const;
 
 	CardFace Face() const { return face_; }
 	void Face(CardFace face)

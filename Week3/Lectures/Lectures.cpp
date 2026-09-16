@@ -5,10 +5,18 @@
 #include "Day9.h"
 #include "Input.h"
 #include <Player.h>
+#include "Color.h"
 
 
 int main(int argc, char* args[])
 {
+	Color clr;
+	clr.red = clr.green = clr.blue = clr.alpha = 255;//white
+
+	Color redColor;
+	redColor.red = 255;
+	redColor.alpha = 255;
+
 	//anytime you create a variable of a class,
 	//you are calling a constructor (ctor)
 	Player p1(100, "BruceW");

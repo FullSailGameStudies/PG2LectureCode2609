@@ -152,6 +152,7 @@
     <ClInclude Include="..\..\Shared\PG2Graphics\PG2Texture.h" />
     <ClInclude Include="Car.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Day7.h" />
     <ClInclude Include="Day8.h" />
     <ClInclude Include="Day9.h" />
