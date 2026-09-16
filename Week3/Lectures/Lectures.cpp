@@ -4,10 +4,16 @@
 #include "Day8.h"
 #include "Day9.h"
 #include "Input.h"
+#include <Player.h>
 
 
 int main(int argc, char* args[])
 {
+	//anytime you create a variable of a class,
+	//you are calling a constructor (ctor)
+	Player p1(100, "BruceW");
+	std::cout << p1.GamerTag() << " Health: " << p1.GetHealth() << "\n";
+
     std::string hello = "Hello Week 3!";
     for (auto& ch : hello)
     {
