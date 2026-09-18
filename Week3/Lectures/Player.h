@@ -57,6 +57,16 @@ public:
 	}
 
 	//alternative naming (more "modern")
+	// 
+	// COMPILE-TIME POLYMORPHISM
+	//overload:
+	//	when 2 functions have the same name
+	//	the functions have to be different
+	//		on the parameters in at least 1 of these ways
+	//	1) the types of the parameters are different
+	//	2) the number of parameters are different
+	//
+	//	they cannot ONLY be different on the return type
 	const std::string& GamerTag() const { return gamerTag_; }
 	void GamerTag(const std::string& gamerTag)
 	{

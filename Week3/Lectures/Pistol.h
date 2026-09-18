@@ -17,6 +17,14 @@ public:
 	//child ctors MUST call a parent ctor
 	Pistol(int range, int damage, int rounds, int magCap);
 
+	Pistol operator+(Pistol& other)
+	{
+		Pistol p3(range(), damage(), mRounds + other.mRounds, mMagCapacity);
+		return p3;
+	}
+
+	void showMe();
+
 	int Rounds() const { return mRounds; }
 	void Rounds(int rounds)
 	{

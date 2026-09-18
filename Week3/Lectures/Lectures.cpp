@@ -9,11 +9,27 @@
 #include <Weapon.h>
 #include <Pistol.h>
 
+int Add(int n1, int n2) { return n1 + n2; }
+int Add(float n3, float n4) { return n3 + n4; }
 
 int main(int argc, char* args[])
 {
+	int sum = Add(5.0f, 6.0);
+	sum = Add(5, 6);
 	Weapon wpn(10, 100);
-	Pistol pewpew(20,50,10,10);
+	Pistol pewpew(20,50,2,10);
+	Pistol p2(20,50,3,10);
+	//we can overload the + operator
+	Pistol combine = pewpew + p2;//pewpew.Add(p2)
+
+
+	//I need showMe to also show the Pistol info
+	//I need to "OVERRIDE" what showMe does for the Pistol class
+	//OVERRIDE: (run-time polymorphism)
+	//1) go to the base class and mark the method as 'virtual'
+	//2) add a method to the derived class that has the same signature
+	//		as the base method
+	pewpew.showMe();
 
 	Color clr;
 	clr.red = clr.green = clr.blue = clr.alpha = 255;//white

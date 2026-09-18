@@ -10,7 +10,7 @@ public:
 		face_(face), suit_(suit)
 	{}
 
-	int Value() const;
+	virtual int Value() const;
 	void Print() const;
 	std::string FaceName() const;
 	std::string SuitName() const;
@@ -32,7 +32,7 @@ public:
 	}
 
 
-private:
+protected:
 	CardFace face_;
 	CardSuit suit_;
 };
