@@ -15,6 +15,11 @@ Pistol::Pistol(int range, int damage, int rounds, int magCap) :
 
 }
 
+int Pistol::calcDamage()
+{
+	return Weapon::calcDamage();
+}
+
 void Pistol::showMe()
 {
 	//What kind of override do we need?

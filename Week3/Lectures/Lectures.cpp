@@ -12,11 +12,27 @@
 int Add(int n1, int n2) { return n1 + n2; }
 int Add(float n3, float n4) { return n3 + n4; }
 
+void Counter()
+{
+	//the first time it creates the variable
+	//after that, it looks up the variable in static memory
+	//variables in static memory stay there for the lifetime
+	//of the application (however long the app is running)
+	static int i = 0;
+	std::cout << i << " ";
+	i++;
+}
+
 int main(int argc, char* args[])
 {
+	for (int i = 0; i < 10; i++)
+	{
+		Counter();
+	}
+
 	int sum = Add(5.0f, 6.0);
 	sum = Add(5, 6);
-	Weapon wpn(10, 100);
+	//Weapon wpn(10, 100);
 	Pistol pewpew(20,50,2,10);
 	Pistol p2(20,50,3,10);
 	//we can overload the + operator
@@ -30,6 +46,26 @@ int main(int argc, char* args[])
 	//2) add a method to the derived class that has the same signature
 	//		as the base method
 	pewpew.showMe();
+
+
+	int n5 = 10;
+	int& n5Ref = n5;
+	int* n5Ptr;
+	n5Ptr = &n5;//& means 'address-of'
+	std::cout << n5Ref << "\n";
+	std::cout << n5Ptr << "\n";
+	std::cout << *n5Ptr << "\n";//* means 'dereference'
+
+	Pistol* currentWeapon = &pewpew;
+	//how do I access the Pistol parts?
+	//use the '->' notation
+	//another way to dereference the pointer
+	currentWeapon->showMe();
+	pewpew.showMe();
+	//it can only point to a Pistol object
+	//currentWeapon = &n5;
+
+
 
 	Color clr;
 	clr.red = clr.green = clr.blue = clr.alpha = 255;//white

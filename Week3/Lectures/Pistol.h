@@ -23,7 +23,13 @@ public:
 		return p3;
 	}
 
-	void showMe();
+	int calcDamage() override;
+
+	//OPTIONALLY, add 'override' to the methods that are overriding a base method
+	//it tells the compiler to make sure that this is an actual override
+	//which means, the base class MUST have a method that matches this one
+	//if not, the compiler will give you a build error
+	void showMe() override;
 
 	int Rounds() const { return mRounds; }
 	void Rounds(int rounds)
