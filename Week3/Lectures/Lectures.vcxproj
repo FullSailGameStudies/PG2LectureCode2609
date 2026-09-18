@@ -134,6 +134,7 @@
     <ClCompile Include="..\..\Shared\Input\Input.cpp" />
     <ClCompile Include="..\..\Shared\PG2Graphics\PG2Graphics.cpp" />
     <ClCompile Include="..\..\Shared\PG2Graphics\PG2Texture.cpp" />
+    <ClCompile Include="BlackjackCard.cpp" />
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Day7.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="DayCode.cpp" />
     <ClCompile Include="GameTextures.cpp" />
     <ClCompile Include="Lectures.cpp" />
+    <ClCompile Include="Pistol.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
@@ -150,6 +152,7 @@
     <ClInclude Include="..\..\Shared\Input\Input.h" />
     <ClInclude Include="..\..\Shared\PG2Graphics\PG2Graphics.h" />
     <ClInclude Include="..\..\Shared\PG2Graphics\PG2Texture.h" />
+    <ClInclude Include="BlackjackCard.h" />
     <ClInclude Include="Car.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Color.h" />
@@ -163,6 +166,7 @@
     <ClInclude Include="GameTextures.h" />
     <ClInclude Include="Inheritance.h" />
     <ClInclude Include="nested.h" />
+    <ClInclude Include="Pistol.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Polymorphism.h" />
     <ClInclude Include="static.h" />
