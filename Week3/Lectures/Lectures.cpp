@@ -9,6 +9,7 @@
 #include <Weapon.h>
 #include <Pistol.h>
 #include <Knife.h>
+#include "Car.h"
 
 int Add(int n1, int n2) { return n1 + n2; }
 int Add(float n3, float n4) { return n3 + n4; }
@@ -26,6 +27,13 @@ void Counter()
 
 int main(int argc, char* args[])
 {
+
+	Car myRide(1988, "Ford", "Mustang GT 5.0");
+	Car calebsRide(2001, "Ford", "Ranger");
+	myRide.vehicleInformation();
+	calebsRide.vehicleInformation();
+	Car::reporting();
+
 	for (int i = 0; i < 10; i++)
 	{
 		Counter();
