@@ -142,6 +142,7 @@
     <ClCompile Include="Day9.cpp" />
     <ClCompile Include="DayCode.cpp" />
     <ClCompile Include="GameTextures.cpp" />
+    <ClCompile Include="Knife.cpp" />
     <ClCompile Include="Lectures.cpp" />
     <ClCompile Include="Pistol.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="friends.h" />
     <ClInclude Include="GameTextures.h" />
     <ClInclude Include="Inheritance.h" />
+    <ClInclude Include="Knife.h" />
     <ClInclude Include="nested.h" />
     <ClInclude Include="Pistol.h" />
     <ClInclude Include="Player.h" />

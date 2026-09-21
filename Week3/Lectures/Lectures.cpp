@@ -8,6 +8,7 @@
 #include "Color.h"
 #include <Weapon.h>
 #include <Pistol.h>
+#include <Knife.h>
 
 int Add(int n1, int n2) { return n1 + n2; }
 int Add(float n3, float n4) { return n3 + n4; }
@@ -38,6 +39,27 @@ int main(int argc, char* args[])
 	//we can overload the + operator
 	Pistol combine = pewpew + p2;//pewpew.Add(p2)
 
+	Knife stabby(3, 10, true);
+
+	//UPCASTING
+	//	cast from a DERIVED type (Knife) to a BASE type (Weapon)
+	//	ALWAYS safe b/c the compiler knows that knife inherits from weapon
+	//	KNIFE is-a WEAPON
+	Weapon* currentWeapon = &stabby;//point it to the knife instead of copying the knife
+	currentWeapon = &pewpew;
+
+	std::vector<Weapon*> inventory;
+	//we lose the specific information for each object
+	inventory.push_back(&pewpew);//copies the POINTER to pewpew 
+	inventory.push_back(&stabby);//copied the POINTER to stabby
+	std::cout << "\n\nJohn Wick's Inventory:\n";
+	for (auto& weapon : inventory)
+	{
+		//RUNTIME polymorphism
+		weapon->showMe();
+	}
+	std::cout << "\n\nEND of inventory\n\n";
+
 
 	//I need showMe to also show the Pistol info
 	//I need to "OVERRIDE" what showMe does for the Pistol class
@@ -56,7 +78,7 @@ int main(int argc, char* args[])
 	std::cout << n5Ptr << "\n";
 	std::cout << *n5Ptr << "\n";//* means 'dereference'
 
-	Pistol* currentWeapon = &pewpew;
+	currentWeapon = &pewpew;
 	//how do I access the Pistol parts?
 	//use the '->' notation
 	//another way to dereference the pointer
@@ -76,8 +98,22 @@ int main(int argc, char* args[])
 
 	//anytime you create a variable of a class,
 	//you are calling a constructor (ctor)
-	Player p1(100, "BruceW");
+	Player p1(100, "BruceW");//on the stack
 	std::cout << p1.GamerTag() << " Health: " << p1.GetHealth() << "\n";
+
+	//p2 is on the stack
+	//player object it points to is on the heap
+	Player* player2 = new Player(75, "Hero Brine");//on the heap
+
+	//EVERY '=new' requires a corresponding 'delete'
+	//if you don't you've leaked memory
+	delete player2;//deallocate the object but we still have the pointer to the memory address
+	player2 = nullptr;
+	if (player2 != nullptr)
+	{
+		player2->SetHealth(100);
+	}
+
 
     std::string hello = "Hello Week 3!";
     for (auto& ch : hello)
