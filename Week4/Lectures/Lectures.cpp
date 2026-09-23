@@ -6,6 +6,9 @@
 #include <fstream>
 #include <sstream>
 #include <Player.h>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 
 int main(int argc, char* args[])
@@ -15,12 +18,29 @@ int main(int argc, char* args[])
 	//	where the file is? how you're opening it? did it succeed?
 	//2) write/read the file
 	//3) CLOSE the file
-	
+
 	std::string fileName = "2609.csv";
 	std::string path = "C:\\temp\\2609\\";
 	std::string finalPath = path + fileName;
 	char delimiter = '$';
-	
+
+
+	path = "C:\\temp";
+	if (fs::exists(path) and fs::is_directory(path))
+	{
+		for (const auto& entry : fs::directory_iterator(path))
+		{
+			auto directoryItem = entry.path();
+			if (directoryItem.extension() == ".zip")
+				std::cout << directoryItem << '\n';
+		}
+	}
+	else
+	{
+		std::cout << finalPath << " is NOT valid.\n";
+	}
+
+
 	//1) open the file
 	//this will attempt to open the file
 	//it will NOT work if the path does not exists
@@ -151,12 +171,12 @@ int main(int argc, char* args[])
 
 
 
-    std::string hello = "Hello Week 4!";
-    for (auto& ch : hello)
-    {
-        Console::Write(ch, (ConsoleColor)(rand() % 7 + 1));
-    }
-    std::cout << "\n";
+	std::string hello = "Hello Week 4!";
+	for (auto& ch : hello)
+	{
+		Console::Write(ch, (ConsoleColor)(rand() % 7 + 1));
+	}
+	std::cout << "\n";
 
 	int menuSelection = 0;
 	std::vector<std::string> menuOptions{
